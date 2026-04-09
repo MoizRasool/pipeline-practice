@@ -1,0 +1,28 @@
+name: GitHub Action Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Hello Moiz
+        run: echo "🚀 Hello Moiz! Your GitHub Actions Pipeline is working now!"
+
+      - name: Show current date and info
+        run: |
+          echo "Date & Time: $(date)"
+          echo "Repository: ${{ github.repository }}"
+          echo "Triggered by: ${{ github.actor }}"
+
+      - name: List files
+        run: ls -la
