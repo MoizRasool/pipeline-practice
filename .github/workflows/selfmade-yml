@@ -1,0 +1,23 @@
+name: Self-made-pipeline
+
+on:
+ push:
+  Branches: [Main]
+ workflow_dispatch:
+
+jobs:
+  self-job:
+     run-on: ubuntu latest
+
+steps:
+      - name: checkout my code
+       uses: action/checkout@v4
+
+      - name: my first custom steps
+        run: echo " hello i am write my own yml file "
+
+      - name: print current date
+        run: date
+
+      - name: show my repo name 
+        run: echo "Repository: ${{ github.repository }}"
